@@ -40,5 +40,13 @@
       ],
       "platform": "web"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jinhongxun/dsh-mcphub"
+  },
+  "homepage": "https://github.com/jinhongxun/dsh-mcphub#readme",
+  "bugs": {
+    "url": "https://github.com/jinhongxun/dsh-mcphub/issues"
   }
 }
