@@ -1,0 +1,12 @@
+# dsh-mcphub bundle patch.
+#
+# Installed through the CLI:
+#   dsh plugin --profile <name> add <this package>
+# The command reconciles `dsh.profile.bundles` and appends `dsh-mcphub`
+# to the bundle stack; the profile boot merges this patch like any manual
+# cordis.patch.yml mount line. `name` must equal the package name so the
+# client-modules scan resolves ./client and serves it at
+# /plugins/dsh-mcphub/client.js.
+- insert:
+    - id: mcphub
+      name: 'dsh-mcphub'
