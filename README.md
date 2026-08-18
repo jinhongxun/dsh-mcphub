@@ -34,6 +34,7 @@ dsh plugin --profile web add dsh-mcphub
 
 ### 常见问题：profile 是什么？
 
+
 profile 是 DSH 的「独立配置环境」（类似浏览器的多用户配置）：每个 profile 有自己的插件和 MCP 列表，互不影响。例：机器上可以有 `web`（日常网页版）和 `open-design`（给设计软件用）两套，各配各的 MCP。添加表单里的 profile 选择就是决定写入哪套环境——只有一个 profile 时无需关心。
 
 ### 环境要求
