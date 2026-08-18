@@ -17,11 +17,11 @@ MCP 管理面板（[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-ha
 ### 安装
 
 ```powershell
-# 从 npm
-dsh plugin --profile web add dsh-mcphub
+# 从 GitHub
+dsh plugin --profile web add github:jinhongxun/dsh-mcphub
 
-# 或从 GitHub
-dsh plugin --profile web add github:<你的用户名>/dsh-mcphub
+# 或从 npm（如已发布）
+dsh plugin --profile web add dsh-mcphub
 ```
 
 安装后重启 DSH 生效。
@@ -49,11 +49,11 @@ MCP management panel for [DeepSeek Harness](https://github.com/deepseek-ai/deeps
 ### Install
 
 ```powershell
-# from npm
-dsh plugin --profile web add dsh-mcphub
+# from GitHub
+dsh plugin --profile web add github:jinhongxun/dsh-mcphub
 
-# or from GitHub
-dsh plugin --profile web add github:<your-username>/dsh-mcphub
+# or from npm (once published)
+dsh plugin --profile web add dsh-mcphub
 ```
 
 Restart DSH after installing.
