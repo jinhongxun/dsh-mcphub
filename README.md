@@ -1,5 +1,7 @@
 # dsh-mcphub
 
+[![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
+
 [中文](#中文) | [English](#english)
 
 ---
@@ -29,6 +31,15 @@ dsh plugin --profile web add dsh-mcphub
 ### 隐私
 
 配置文件中的 headers / env 密钥只在 Host 内存中用于探测握手，**永远不会发送到浏览器端**（面板只收到键名）。
+
+### 常见问题：profile 是什么？
+
+profile 是 DSH 的「独立配置环境」（类似浏览器的多用户配置）：每个 profile 有自己的插件和 MCP 列表，互不影响。例：机器上可以有 `web`（日常网页版）和 `open-design`（给设计软件用）两套，各配各的 MCP。添加表单里的 profile 选择就是决定写入哪套环境——只有一个 profile 时无需关心。
+
+### 环境要求
+
+- Node.js ≥ 20
+- DeepSeek Harness（含 `dsh-client-connection` 通道，官方发行版自带）
 
 ### 兼容性
 
@@ -61,6 +72,15 @@ Restart DSH after installing.
 ### Privacy
 
 Secrets in headers / env stay in the host process for probing only — they are **never sent to the browser** (the panel receives key names only).
+
+### FAQ: what is a profile?
+
+A profile is DSH's isolated config environment (like browser profiles): each one keeps its own plugins and MCP server list. Example: a machine can have `web` (daily web UI) and `open-design` profiles, each with its own MCP servers. The profile picker in the add-server form decides which environment gets the new entry — with a single profile there is nothing to choose.
+
+### Requirements
+
+- Node.js ≥ 20
+- DeepSeek Harness (ships the `dsh-client-connection` channel in official builds)
 
 ### Compatibility
 
