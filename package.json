@@ -23,7 +23,8 @@
     "dsh-plugin",
     "deepseek-harness",
     "mcp",
-    "model-context-protocol"
+    "model-context-protocol",
+    "deepseek"
   ],
   "license": "MIT",
   "engines": {
