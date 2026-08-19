@@ -1,6 +1,6 @@
 {
   "name": "dsh-mcphub",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "MCP management panel for DeepSeek Harness: connection status (green dot), pip/npx local-server upgrade detection & one-click upgrade, add-server form writing cordis.patch.yml, connectivity probe, and usage help.",
   "type": "module",
   "main": "index.js",

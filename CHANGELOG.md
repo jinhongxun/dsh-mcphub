@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.1 (2026-08-18)
+
+- Fix delete always failing with "未能定位该服务器的配置块": the block-confirm
+  regex matched only the quoted form `serverName: 'x'` (yamlScalar output) and
+  missed bare `serverName: x` written by hand or by other tools. Both forms
+  (plus double-quoted) are now accepted.
+- Fix `removeOverrideRow` leaving an orphaned top-level `disabled: true` behind
+  after resume/delete: the splice range stopped before the disabled row and
+  removed only the `- id:` line. The orphan could break YAML parsing of the
+  whole patch file.
+- Client: pause/resume/delete failures now surface the host error in the panel
+  instead of failing silently.
+
 ## 0.3.0 (2026-08-18)
 
 - Pause / resume / delete per server, persisted through restarts via the

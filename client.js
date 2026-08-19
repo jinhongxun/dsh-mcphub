@@ -903,8 +903,11 @@ window.__ModuleLoader__.load({
           try {
             var r = await rpc("set-disabled", { name: name, disabled: wantDisabled });
             if (r && r.ok) setPendingRestart(true);
+            else if (r && r.error) setErr("暂停/恢复失败：" + r.error);
             await load();
-          } catch (e) {}
+          } catch (e) {
+            setErr(String((e && e.message) || e));
+          }
         });
       };
       var doDelete = function (name) {
@@ -912,8 +915,11 @@ window.__ModuleLoader__.load({
           try {
             var r = await rpc("delete", { name: name });
             if (r && r.ok) setPendingRestart(true);
+            else if (r && r.error) setErr("删除失败：" + r.error);
             await load();
-          } catch (e) {}
+          } catch (e) {
+            setErr(String((e && e.message) || e));
+          }
         });
       };
 

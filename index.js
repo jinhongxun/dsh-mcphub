@@ -645,7 +645,11 @@ function removeOverrideRow(lines, entryId) {
       j++
     }
     if (j >= lines.length || !/^\s*disabled:\s/.test(lines[j])) continue
-    lines.splice(i, j - i)
+    // Remove the `- id:` line, any comment lines between it and the disabled
+    // row, AND the disabled row itself (+1). Splicing only [i, j) used to
+    // leave an orphaned top-level `disabled: true` behind, which can break
+    // YAML parsing of the whole patch file.
+    lines.splice(i, j - i + 1)
     return true
   }
   return false
@@ -740,9 +744,17 @@ async function epDelete(_ctx, args) {
         break
       }
     }
-    // Confirm this block is OUR serverName.
+    // Confirm this block is OUR serverName. The value may be written bare
+    // (`serverName: kimi-cu`, common in hand-edited files) or quoted
+    // (`serverName: 'kimi-cu'`, what epCreate/yamlScalar emits) — accept both.
     const seg = lines.slice(s, e).join('\n')
-    if (new RegExp('serverName:\\s*' + escapeReg(yamlScalar(name)) + '\\s*$', 'm').test(seg)) {
+    const bareNameRe = escapeReg(String(name))
+    const quotedNameRe = escapeReg(String(name).replace(/'/g, "''"))
+    const serverNameRe = new RegExp(
+      'serverName:\\s*(?:\'' + quotedNameRe + '\'|"' + quotedNameRe + '"|' + bareNameRe + ')\\s*$',
+      'm',
+    )
+    if (serverNameRe.test(seg)) {
       start = s
       end = e
       break
